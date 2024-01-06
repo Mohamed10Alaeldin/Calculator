@@ -1,6 +1,6 @@
 from tkinter import *
 win = Tk() 
-win.geometry("365x471+600+200")
+win.geometry("365x475+600+200")
 win.resizable(0, 0)
 win.title("Calculator")
 # <------ ~funtions of buttons~ -------->
@@ -9,7 +9,7 @@ win.title("Calculator")
 def btn_click(item):
     global expression
     expression = input_text.get()
-    if expression == "0":
+    if expression in ("0","Invalid" ) :
         expression = item
     else:
         expression += item
@@ -23,6 +23,14 @@ def bt_clear():
 def Enter_key_pressed(event):
     bt_equal() # redirected to equals function
 # do the math
+
+def delete():
+    expression = input_text.get()
+    if expression and expression not in ("0", "Invalid") and len(expression) > 1:
+        input_text.set(expression[:-1])
+    else:
+        input_text.set("0")
+
 def bt_equal():
     global expression
     expression = input_text.get()
@@ -51,7 +59,11 @@ btns_frame = Frame(win, width=312, height=272.5, bg="#D2CBB8")
 btns_frame.pack()
 
 # first row
-clear = Button(btns_frame, text = "C", fg = "#000", width = 33, height = 3, bd = 0, cursor = "hand2", command = bt_clear).grid(row = 0, column = 0, columnspan = 3, padx = 2, pady = 2)
+clear = Button(btns_frame, text = "C", fg = "blue", width = 10, height = 3, bd = 0, cursor = "hand2", command = bt_clear).grid(row = 0, column = 0, padx = 2, pady = 2)
+
+mod = Button(btns_frame, text = "%", fg = "#000", width = 10, height = 3, bd = 0, cursor = "hand2", command = lambda: btn_click("%")).grid(row = 0, column = 1, padx = 2, pady = 2)
+
+remove = Button(btns_frame, text = "Del", fg = "#000", width = 10, height = 3, bd = 0, cursor = "hand2", command = delete).grid(row = 0, column = 2, padx = 2, pady = 2)
  
 divide = Button(btns_frame, text = "/", fg = "black", width = 10, height = 3, bd = 0, cursor = "hand2", command = lambda: btn_click("/")).grid(row = 0, column = 3, padx = 2, pady = 2)
  

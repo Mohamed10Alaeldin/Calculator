@@ -1,7 +1,6 @@
 from tkinter import *
 win = Tk() 
 win.geometry("365x475+600+200")
-win.resizable(0, 0)
 win.title("Calculator")
 # <------ BUTTONS COMMANDS -------->
 
@@ -51,10 +50,9 @@ expression = ""
 input_text.set("0")
 
 input_frame = Frame(win, width=312, height=50,bg="#EBE4D1", bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=0)
-input_frame.pack(side=TOP)
+input_frame.pack()
  
-input_field = Entry(input_frame, font=('arial', 18, 'bold'), textvariable=input_text, width=50, bg="#EBE4D1", bd=0,justify=RIGHT) 
-input_field.grid(row=0, column=0)
+input_field = Entry(input_frame, font=('arial', 18, 'bold'), textvariable=input_text, width=50, bg="#EBE4D1", bd=0,justify=RIGHT, cursor = "hand2") 
 input_field.pack(pady=40,padx=10) #increase the height of input field 
 
 btns_frame = Frame(win, width=312, height=272.5, bg="#D2CBB8")

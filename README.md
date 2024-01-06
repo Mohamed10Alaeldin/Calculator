@@ -16,7 +16,7 @@ To run this program, you need to have Python 3.x installed on your computer. You
 ## Usage
 1. Run the Calculator.py file using Python.
 2. A GUI window will appear with this picture.
-- ![image](https://github.com/Mohamed10Alaeldin/Calculator/assets/99670636/e67b8a52-90b8-452d-9a67-d6d05ac2dbf0)
+- ![image](https://github.com/Mohamed10Alaeldin/Calculator/assets/99670636/e3b5bea4-d7e8-4326-a297-93cd69ab13ce)
 3. write an expression to evaluate.
 4. You can press the buttons or enter with keyboard by selecting the result field
 5. press enter or equal

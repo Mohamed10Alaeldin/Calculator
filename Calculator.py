@@ -3,7 +3,7 @@ win = Tk()
 win.geometry("365x475+600+200")
 win.resizable(0, 0)
 win.title("Calculator")
-# <------ ~funtions of buttons~ -------->
+# <------ BUTTONS COMMANDS -------->
 
 # whenever insertion button is clicked
 def btn_click(item):
@@ -14,16 +14,14 @@ def btn_click(item):
     else:
         expression += item
     input_text.set(expression)
-# reset 
+    
+# clear the text display 
 def bt_clear(): 
     global expression 
     expression = "" 
     input_text.set("0")
-# when the user clicks on Return key (Enter <--)
-def Enter_key_pressed(event):
-    bt_equal() # redirected to equals function
-# do the math
 
+# Erase one Character from the right
 def delete():
     expression = input_text.get()
     if expression and expression not in ("0", "Invalid") and len(expression) > 1:
@@ -42,6 +40,10 @@ def bt_equal():
         input_text.set("Invalid")
     expression = ""
 
+# when the user clicks on Return key (Enter <--)
+def Enter_key_pressed(event):
+    bt_equal() # redirected to equals function
+    
 # ------------- initialize --------------
 win.bind('<Return>', Enter_key_pressed) # if the user clicks the enter key on keyboard
 input_text = StringVar() # used to get the instance of input field
@@ -101,8 +103,6 @@ zero = Button(btns_frame, text = "0", fg = "#000", width = 10, height = 3, bd = 
  
 point = Button(btns_frame, text = ".", fg = "#000", width = 10, height = 3, bd = 0, cursor = "hand2", command = lambda: btn_click(".")).grid(row = 4, column = 2, padx = 2, pady = 2)
 
-
- 
 equals = Button(btns_frame, text = "=", fg = "black", width = 10, height = 3, bd = 0, bg = "orange", cursor = "hand2", command = lambda: bt_equal()).grid(row = 4, column = 3, padx = 2, pady = 2)
  
-win.mainloop()
+win.mainloop() # start the GUI
